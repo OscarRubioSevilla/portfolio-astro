@@ -1,0 +1,41 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+    {
+        date: "Octubre 2021 - Diciembre 2024",
+        title: "Mavi De Occidente | Desarrollador Ecommerce",
+        description: "Desarrollé proyectos de e-commerce con Vue.js y Node.js, implementando tiendas en línea con consumo de APIs internas a través de Express.js. Utilicé Quasar Framework para la UI y Pinia para la gestión del estado, asegurando una experiencia fluida y optimizada. Integré Redis para mejorar el rendimiento y la escalabilidad de las aplicaciones.",
+        link: "",
+    },
+    {
+        date: "Enero 2020 - Septiembre 2021",
+        title: "Lugosoft | Líder técnico",
+        description: "Lideré la implementación de proyectos CRM, desarrollando soluciones con PHP y CodeIgniter 4 para el backend, React.js y Vue.js para el frontend, y Vanilla JS para funcionalidades específicas. Utilicé TailwindCSS para el diseño responsivo del sitio, mientras que RTK Query se encargó de la gestión eficiente de solicitudes de datos. La base de datos fue gestionada con MySQL, optimizando el rendimiento y la experiencia de usuario.",
+        link: "",
+    },
+    {
+        date: "Junio 2018 - Enero 2020",
+        title: "Quahr | Desarrollador Frontend",
+        description: "Desarrollé Quahr Dental, un sistema de administración y control clínico para odontólogos y clínicas odontológicas, permitiendo la gestión eficiente de agendas desde cualquier lugar. Utilicé JavaScript Vanilla y CSS para la interfaz, con CodeIgniter 3 y MySQL para la gestión de datos y optimización del rendimiento.",
+        link: "",
+    },
+    {
+        date: "Agosto 2016 - Marzo 2018",
+        title: "SoftSolutions | Desarrollador Web",
+        description: "Desarrollé aplicaciones web utilizando AngularJS, C# y SQL Server, asegurando soluciones robustas y escalables. Realicé mantenimiento a aplicaciones heredadas desarrolladas en VB. Trabajé directamente con los usuarios para levantar requerimientos y diseñar interfaces atractivas y funcionales, utilizando CSS3 para la personalización del diseño y la mejora de la experiencia visual.",
+        link: "",
+    }
+]
+
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+
+    {
+        EXPERIENCE.map((item) => (
+            <ExperienceItem {...item} />
+        ))
+    }
+
+</ol>

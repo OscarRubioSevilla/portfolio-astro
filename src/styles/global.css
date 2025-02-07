@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@theme {
+    --color-matisse: #38537a;
+}
+
+.image {
+    transition: transform 1s ease-in-out;
+}
+
+.in-view {
+    transform: translateX(10px);
+    /* Mueve la imagen al entrar */
+}
+
+.done {
+    transform: translateX(0);
+    /* Vuelve a la posición original */
+}

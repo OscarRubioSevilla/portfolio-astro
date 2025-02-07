@@ -1,0 +1,61 @@
+---
+import Badge from "../components/Badge.astro";
+import Layout from "../layouts/Layout.astro";
+import LinkedIn from "../icons/Linkendin.astro";
+import SocialPill from "../components/SocialPill.astro";
+import Github from "../icons/Github.astro";
+import Email from "../icons/Email.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Projects from "../components/Projects.astro";
+---
+
+<Layout title="Oscar Rubio | Desarrollador Frontend" description="Contratame para desarrollar tu próximo proyecto, desarrollador Frontend con mas de 8 años de experiencia.">
+  <main>
+    <SectionContainer id="about">
+      <div class="flex items-center gap-2 flex-wrap">
+        <h1
+          class="text-black dark:text-gray-200 font-bold text-3xl xl:text-5xl flex items-center gap-2 flex-col lg:flex-row"
+        >
+          Hey, Soy Oscar Rubio
+        </h1>
+        <a href="https://linkedin.com/in/rubio-oscar/" target="_blank">
+          <Badge>Disponible para contratación</Badge>
+        </a>
+      </div>
+      <h2 class="opacity-80 xl:text-xl dark:text-gray-100 text-wrap">
+        Desarrollador Frontend con mas de 8 años de experiencia. Especializado
+        en Vue y React
+      </h2>
+
+      <ul class="flex gap-4 items-center flex-wrap">
+        <li>
+          <SocialPill href="https://linkedin.com/in/rubio-oscar/">
+            <LinkedIn class="size-4" />
+            <span> LinkedIn</span>
+          </SocialPill>
+        </li>
+        <li>
+          <SocialPill href="https://github.com/OscarRubioSevilla">
+            <Github class="size-4" />
+            <span> Github</span>
+          </SocialPill>
+        </li>
+        <li>
+          <SocialPill href="mailto:rubio.sevilla.oscar@gmail.com">
+            <Email class="size-4" />
+            <span> Email</span>
+          </SocialPill>
+        </li>
+      </ul>
+    </SectionContainer>
+    <SectionContainer id="experience">
+      <h2 class="text-2xl font-bold dark:text-gray-200">Experiencia laboral</h2>
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="projects">
+      <h2 class="text-2xl font-bold dark:text-gray-200">Proyectos</h2>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>

@@ -1,0 +1,152 @@
+---
+//VUE NODEJS EXPRESS REDIS DOCKER ELASTIC MYSQL TYPESCRIPT QUASAR CSS
+
+const projects = [
+  {
+    title: "Muebles América | Tienda online",
+    description:
+      "Muebles América es tu tienda en línea de confianza para encontrar muebles de calidad y estilo para cada espacio. Con un catálogo digital accesible en cualquier momento y lugar, ofrecemos una experiencia de compra rápida y fácil, brindándote todo lo que necesitas para transformar tu hogar con solo unos clics.",
+    link: "",
+    tags: [
+      "Vue",
+      "Node.js",
+      "Express",
+      "Redis",
+      "Docker",
+      "MySQL",
+      "TypeScript",
+      "Quasar",
+      "CSS",
+    ],
+    img: "/ma.png",
+  },
+  {
+    title: "Viu | Tienda online",
+    description: "",
+    link: "",
+    tags: [
+      "Vue",
+      "Node.js",
+      "Express",
+      "Redis",
+      "Docker",
+      "MySQL",
+      "TypeScript",
+      "Quasar",
+      "CSS",
+    ],
+    img: "/viu.png",
+  },
+
+  {
+    title: "Webcard | CRM para PYMES",
+    description:
+      "Webcard es una herramienta que te ayuda a maximizar tu prospección, interacciones y ventas, con herramientas como catálogos digitales, toma de pedidos web, cotizador y generador de PDF, tarjeta digital entre muchas otras.",
+    link: "https://webcard.mx",
+    tags: [
+      "React",
+      "TypeScript",
+      "Tailwind",
+      "Codeigniter 4",
+      "MySQL",
+      "RTK Query",
+    ],
+    img: "/webcard.png",
+  },
+  {
+    title: "Menuweb | CRM para RESTAURANTES",
+    description:
+      "MenuWeb es la solución ideal para restaurantes que buscan mejorar su reputación online, fidelizar clientes y aumentar sus ventas. Con un menú digital de carga rápida y un diseño atractivo, facilitamos la navegación y optimizamos la experiencia del usuario, convirtiendo cada visita en una oportunidad de crecimiento.",
+    img: "/menuweb.png",
+    tags: ["Codeigniter 4", "React", "Tailwind", "MUI", "MySQL", "RTK Query"],
+    link: "https://github.com/rubosdev",
+  },
+  {
+    title: "TarjetaWeb | Gestión de redes sociales",
+    description:
+      "TarjetaWeb es la herramienta perfecta para potenciar tu marca personal y profesional en un solo clic. Comparte tus redes sociales, contacto y catálogo digital de forma instantánea, facilitando la conexión con tu audiencia y atrayendo nuevos clientes a través de un networking profesional y efectivo.",
+    tags: ["Tailwind", "Codeigniter 4", "React", "RTK Query", "MySQL", "MUI"],
+    img: "/tarjetaweb.png",
+    link: "https://github.com/rubosdev",
+  },
+  {
+    title: "Quahr Dental | Sistema de control clínico",
+    description: "",
+    link: "",
+    tags: ["JavaScript", "Vue", "PHP", "Codeigniter 3", "MySQL", "Bootstrap"],
+    img: "/quahr.png",
+  },
+];
+---
+
+<div>
+  {
+    projects.map((project) => (
+      <div class="flex flex-col gap-4 mb-16">
+        <h3 class="text-xl font-bold text-matisse dark:text-yellow-100">{project.title}</h3>
+        <p class="text-gray-500 dark:text-gray-400 mb-3">
+          {project.description}
+        </p>
+
+        <a
+          href={project.link}
+          target="_blank"
+          class="text-blue-500 dark:text-blue-400 hover:opacity-60 transition-opacity relative"
+        >
+          <div class="relative group image">
+            <img
+              src={project.img}
+              alt={project.title}
+              class="rounded-2xl opacity-90"
+            />
+            <span class="absolute inset-0 flex items-center justify-center bg-sky-100 bg-opacity-50 text-black text-lg font-semibold opacity-0 group-hover:opacity-60 transition-opacity duration-300 rounded-2xl">
+              Ir al sitio
+            </span>
+          </div>
+        </a>
+
+        <ul class="flex gap-2 items-center justify-center flex-wrap">
+          {project.tags.map((tag) => (
+            <li class="inline-block px-2 py-1 text-sm font-medium text-gray-500 bg-gray-100 rounded dark:bg-gray-700 dark:text-white">
+              {tag}
+            </li>
+          ))}
+        </ul>
+        <a
+          href={project.link}
+          target="_blank"
+          class="text-matisse dark:text-yellow-100  hover:underline   text-center"
+        >
+          Ir al sitio
+        </a>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  // Configuración del Intersection Observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const image = entry.target;
+
+        if (entry.isIntersecting && !image.classList.contains("done")) {
+          image.classList.add("in-view"); // Aplica el movimiento cuando entra en vista
+
+          // Después de la animación, marca la imagen como "hecha"
+          image.addEventListener("transitionend", () => {
+            image.classList.add("done"); // La clase "done" asegura que no se vuelva a mover
+          });
+        }
+      });
+    },
+    { threshold: 1 }
+  ); // Activar cuando el 50% de la imagen sea visible
+
+  // Observar todas las imágenes con la clase .image
+  const images = document.querySelectorAll(".image");
+  images.forEach((image) => {
+    observer.observe(image);
+  });
+</script>
