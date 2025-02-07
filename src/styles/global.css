@@ -19,3 +19,7 @@
     transform: translateX(0);
     /* Vuelve a la posición original */
 }
+
+.active {
+    @apply text-matisse dark:text-yellow-100 underline;
+}
