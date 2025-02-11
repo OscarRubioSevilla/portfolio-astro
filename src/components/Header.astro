@@ -56,16 +56,25 @@ import Sun from "../icons/Sun.astro";
       >
         <li>
           <a
-            href="#"
+            href="/#"
             class="block py-2 px-3 text-gray-500 transition-all duration-300 md:hover:underline rounded-sm md:bg-transparent md:p-0 dark:text-white"
             >Home</a
           >
         </li>
+
         <li>
           <a
-            href="#about"
+            href="#experience"
             class="block py-2 px-3 text-gray-500 transition-all duration-300 md:hover:underline rounded-sm md:bg-transparent md:p-0 dark:text-white"
-            >Sobre mi</a
+            >Experiencia</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="/#skills"
+            class="block py-2 px-3 text-gray-500 transition-all duration-300 md:hover:underline rounded-sm md:bg-transparent md:p-0 dark:text-white"
+            >Habilidades</a
           >
         </li>
         <li>
@@ -75,13 +84,6 @@ import Sun from "../icons/Sun.astro";
             >Proyectos</a
           >
         </li>
-        <!-- <li>
-          <a
-            href="#"
-            class="block py-2 px-3 text-gray-500 transition-all duration-300 md:hover:underline rounded-sm md:bg-transparent md:p-0 dark:text-white"
-            >Contact</a
-          >
-        </li> -->
       </ul>
     </div>
   </div>
@@ -92,36 +94,37 @@ import Sun from "../icons/Sun.astro";
   const dropdownButton = document.getElementById("dropdownButton");
   const navbar = document.getElementById("navbar-sticky");
 
-  const anchorLinks = navbar.querySelectorAll("a");
+  if (navbar) {
+    const anchorLinks = navbar.querySelectorAll("a");
 
-  const hashInUrl = window.location.hash;
+    const hashInUrl = window.location.hash;
 
-  console.log(hashInUrl);
+    if (anchorLinks.length > 0) {
+      if (hashInUrl) {
+        const activeLink = navbar?.querySelector(`a[href="${hashInUrl}"]`);
+        if (activeLink) activeLink.classList.add("active");
+        else anchorLinks[0].classList.add("active");
+      } else {
+        anchorLinks[0].classList.add("active");
+      }
 
-  if (hashInUrl) {
-    const activeLink = navbar.querySelector(`a[href="${hashInUrl}"]`);
+      anchorLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const activeLink = navbar?.querySelector("a.active");
+          if (activeLink) activeLink.classList.remove("active");
 
-    console.log(activeLink);
+          link.classList.add("active");
+          navbar?.classList.add("hidden");
+        });
+      });
 
-    if (activeLink) activeLink.classList.add("active");
-    else anchorLinks[0].classList.add("active");
-  } else {
-    anchorLinks[0].classList.add("active");
+      if (dropdownButton) {
+        dropdownButton.addEventListener("click", () => {
+          navbar?.classList.toggle("hidden");
+        });
+      }
+    }
   }
-
-  anchorLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      const activeLink = navbar.querySelector("a.active");
-      if (activeLink) activeLink.classList.remove("active");
-
-      link.classList.add("active");
-      navbar.classList.add("hidden");
-    });
-  });
-
-  dropdownButton.addEventListener("click", () => {
-    navbar.classList.toggle("hidden");
-  });
 
   // Theme Toggle
   const themeToggle = document.getElementById("theme-toggle");

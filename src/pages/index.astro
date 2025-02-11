@@ -8,6 +8,7 @@ import Email from "../icons/Email.astro";
 import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
 ---
 
 <Layout title="Oscar Rubio | Desarrollador Frontend" description="Contratame para desarrollar tu próximo proyecto, desarrollador Frontend con mas de 8 años de experiencia.">
@@ -52,6 +53,10 @@ import Projects from "../components/Projects.astro";
       <div class="mt-16 text-center">
         <a class="text-white text-sm lg:text-base font-semibold py-2 px-4 rounded-full bg-matisse dark:bg-yellow-300 dark:text-gray-700 hover:bg-yellow-200" href="/public/Resume.pdf" download="CV_Oscar_Rubio">Descargar CV</a>
       </div>
+    </SectionContainer>
+    <SectionContainer id="skills">
+      <h2 class="text-2xl font-bold dark:text-gray-200">Habilidades</h2>
+      <Skills />
     </SectionContainer>
     <SectionContainer id="experience">
       <h2 class="text-2xl font-bold dark:text-gray-200">Experiencia laboral</h2>

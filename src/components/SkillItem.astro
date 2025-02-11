@@ -1,0 +1,8 @@
+---
+const { name, icon: Icon } = Astro.props;
+---
+
+<li class="flex items-center gap-x-2 flex-col justify-center gap-1">
+    <Icon />
+    <span class="text-xs text-matisse font-medium dark:text-yellow-100">{name}</span>
+</li>

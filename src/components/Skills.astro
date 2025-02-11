@@ -1,0 +1,30 @@
+---
+import SkillItem from "./SkillItem.astro";
+import HTML from "../icons/skills/HTML.astro";
+import React from "../icons/skills/React.astro";
+import JS from "../icons/skills/JS.astro";
+import Redux from "../icons/skills/Redux.astro";
+
+const SKILLS = [
+    {
+        name: "HTML5",
+        icon: HTML,
+    },
+    {
+        name: "React",
+        icon: React,
+    },
+    {
+        name: "Redux",
+        icon: Redux,
+    },
+    {
+        name: "JavaScript",
+        icon: JS,
+    }
+];
+---
+
+<ol class="relative flex flex-wrap justify-center gap-3 border-gray-200 dark:border-gray-700">
+    {SKILLS.map((item) => <SkillItem {...item} />)}
+</ol>
